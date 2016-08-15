@@ -50,6 +50,7 @@ This documentation is organized as following:
   * Breinify.config()
   * Breinify.version()
   * Breinify.setConfig(config)
+  
 #### General Attributes
 
 * {object} **Breinify.config()**:<br/>
