@@ -72,7 +72,7 @@ This documentation is organized as following:
     
     {string} **secret**: The secret attached to the API-key (highly recommended when utilizing this type of library).
   
-    {number} **timeout**: The maximum amount of time in milliseconds an API-call should take. If the API does not response after this amount of time, the call is cancelled.
+    {number} **category**: The category is needed for a fallback. 
   
     {boolean} **debug**: This will include stack traces.
     
@@ -99,6 +99,7 @@ This documentation is organized as following:
 
   * **apiKey**: The API-key to be used (required).
   * **secret**: The secret is needed for a key that requires a verified signature.
+  * **category**: The category is needed for a fallback. Take a look at [categories](#category)
     
   **Example Usage**:
   ```javascript
