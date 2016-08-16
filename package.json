@@ -1,6 +1,6 @@
 {
   "name": "breinify-node",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is a JavaScript library simplifying the usage of the Breinify API specifically for node",
   "authors": [
     "Diane Keng <diane@breinify.com>",
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/breinify/brein-api-library-node.git"
   },
-  "main": "./lib/breinify.js",
+  "main": "lib/breinify.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec",
     "coverage": "istanbul cover _mocha -- -R spec"
