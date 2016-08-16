@@ -1,19 +1,26 @@
 {
-  "name": "brein-api-library-node",
+  "name": "breinify-node",
+  "version": "1.0.0",
   "description": "This is a JavaScript library simplifying the usage of the Breinify API specifically for node",
   "authors": [
+    "Diane Keng <diane@breinify.com>",
     "Philipp Meisen <philipp@breinify.com>",
-    "Marco Recchioni <marco@breinify.com>",
-    "Diane Keng <diane@breinify.com>"
+    "Marco Recchioni <marco@breinify.com>"
   ],
-  "version": "0.0.0",
-  "private": true,
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/breinify/brein-api-library-node.git"
+  },
+  "main": "./lib/breinify.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec",
     "coverage": "istanbul cover _mocha -- -R spec"
   },
   "dependencies": {
     "crypto-js": "^3.1.6",
+    "http": "0.0.0",
     "https": "^1.0.0",
     "util-is": "^0.1.0"
   },
