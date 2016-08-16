@@ -13,11 +13,16 @@ var payload = {
         "dateOfBirth": "01/20/1981",
         "sessionId": "Rg3vHJZnehYLjVg7qi3bZjzg",
         "deviceId": "f07a13984f6d116a",
-        "imei": "990000862471854"
+        "imei": "990000862471854",
+        "additional": {
+            "userAgent": "Mozilla/5.0 (Linux; Android 4.3; C6530N Build/JLS36C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36",
+            "referrer": "https://m.facebook.com/",
+            "url": "https://test.com/amazingchips"
+        }
     },
 
     "activity": {
-        "type": "login",
+        "type": "search",
         "description": "brownies recipe",
         "tags": {
             "flavor": "chocolate",
