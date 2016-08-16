@@ -189,7 +189,7 @@ This documentation is organized as following:
 var Breinify = require('breinify-node');
 
 // set configuration for Breinify
-Breinify.setConfig({
+var breinify = new Breinify({
     apiKey: 'here-is-my-breinify-key',
     secret: 'here-is-my-breinify-secret'
 });
@@ -214,7 +214,7 @@ var tags = {
       }
 
       
-Breinify.activity(user, type, description, tags, true);
+breinify.activity(user, type, description, tags, true);
     
 ```
 
