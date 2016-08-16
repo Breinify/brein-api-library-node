@@ -121,6 +121,19 @@ This documentation is organized as following:
      * __sessionId__
      * __deviceId__
      * __md5Email__
+     * __phone__
+     * __additional__ {object} 
+       
+``` javascript
+//in node, userAgent is usually request.headers['user-agent']
+//in node, referrer is usually request.headers['refere‌​r']
+//in node, url is usually request.url;
+"additional": { 
+   "userAgent": "Mozilla/5.0 (Linux; Android 4.3; C6530N Build/JLS36C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36",
+   "referrer": "https://m.facebook.com/",
+   "url": "https://test.com/amazingchips"
+}
+```
 
   {string | null} **type**: The type of the activity collected:
    * __pageVisit__
@@ -132,6 +145,23 @@ This documentation is organized as following:
    * __checkOut__
    * __logout__
    * If not specified, the default __other__ will be used.
+
+  {string | null} **description**: A string with further information about the activity performed. Depending on the type of the activity, some typical descriptions are: 
+  * __type: search__- the used search query
+  * __type: selectProduct__- the name and tags of the selected product 
+  * __type: addToCart || removeFromCart__- the item name, tags, or summary
+  * __type: checkOut__- the amount of monetary value ($10 USD)
+  * __type: pageVisit__- the page name that the user visited
+
+  {object | null} **tags**: An object of key value pairs where the value is a number, string, boolean, or a mixed array of either number, string, or boolean. No nested objects or array of objects.
+  
+  ``` javascript
+  "tags": {
+      "flavor": "chocolate",
+      "texture": ["extra chunky", "crumble"],
+      "double": true
+  }
+  ```
 
   {string | null} **category**: The category of the platform/service/products:
    * __apparel__ 
@@ -146,12 +176,6 @@ This documentation is organized as following:
    * __other__ 
    * If not specified, the configured type (see *Breinify.config().category*) is used.
 
-  {string | null} **description**: A string with further information about the activity performed. Depending on the type of the activity, some typical descriptions are: 
-  * __type: search__- the used search query
-  * __type: selectProduct__- the name and tags of the selected product 
-  * __type: addToCart || removeFromCart__- the item name, tags, or summary
-  * __type: checkOut__- the amount of monetary value ($10 USD)
-  * __type: pageVisit__- the page name that the user visited
 
   {boolean|null} **sign**: A boolean value specifying if the call should have a signature generated, which is only available if the *secret* is configured. 
 
