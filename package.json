@@ -21,8 +21,7 @@
   "dependencies": {
     "crypto-js": "^3.1.6",
     "http": "0.0.0",
-    "https": "^1.0.0",
-    "util-is": "^0.1.0"
+    "https": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
