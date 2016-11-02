@@ -1,11 +1,11 @@
 >
-```javascript
+```node
    //Install via NPM
    npm install breinify-node
 ```
 
 >
-```javascript
+```node
    // grab the Breinify factory 
    var Breinify = require('breinify-node'); 
 >
@@ -16,7 +16,7 @@
 ```
 
 >
-```javascript
+```node
     // set configuration for Breinify 
    var breinify = new Breinify({
        apiKey: 'time-is-ticking',
