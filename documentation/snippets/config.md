@@ -1,14 +1,14 @@
 > Install via NPM
 
 >
-```javascript--node
+```javascript
    npm install breinify-node
 ```
 
 > Quickstart
 
 >
-```javascript--node
+```javascript
    // grab the Breinify factory 
    var Breinify = require('breinify-node');
    
@@ -21,7 +21,7 @@
 > If you configured your key to require a signature, please add the following:
 
 >
-```javascript==node
+```javascript
     // set configuration for Breinify 
    var breinify = new Breinify({
        apiKey: 'time-is-ticking',
