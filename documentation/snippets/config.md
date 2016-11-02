@@ -1,8 +1,16 @@
-// grab the Breinify factory
-var Breinify = require('breinify-node');
+>
+```node
+   //Install via NPM
+   npm install breinify-node
+```
 
-// set configuration for Breinify
-var breinify = new Breinify({
-    apiKey: '23AD-F31F-F324-6666-A12D-C506-DC29-BBC2',
-    secret: 'x1kobso6olasgkep9nuloq'
-});
+>
+```node
+   // grab the Breinify factory 
+   var Breinify = require('breinify-node'); 
+>
+   // set configuration for Breinify without signature
+   var breinify = new Breinify({
+       apiKey: 'time-is-ticking'
+   });
+```
