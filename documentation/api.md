@@ -246,28 +246,27 @@ The library provides several attributes, methods, and objects to simplify the us
 
    // set configuration for Breinify
    var breinify = new Breinify({
-     apiKey: 'here-is-my-breinify-key',
-     secret: 'here-is-my-breinify-secret'
+      'apiKey': 'here-is-my-breinify-key',
+      'secret': 'here-is-my-breinify-secret'
    });
 
-
    var user = {
-       "email": "diane@breinify.com",
-       "sessionId": "Rg3vHJZnehYLjVg7qi3bZjzg",
-       "additional": {
-           "userAgent": "Mozilla/5.0 (Linux; Android 4.3; C6530N Build/JLS36C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36",
-           "referrer": "https://m.facebook.com/",
-           "url": "https://test.com/amazingchips"
+      'email': 'diane@breinify.com',
+      'sessionId': 'Rg3vHJZnehYLjVg7qi3bZjzg',
+      'additional': {
+         'userAgent': 'Mozilla/5.0 (Linux; Android 4.3; C6530N Build/JLS36C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36',
+         'referrer': 'https://m.facebook.com/',
+         'url': 'https://test.com/amazingchips'
        }
     };
     
    var type = "search";
    var description = 'brownies recipe';
    var tags = {
-          "flavor": "chocolate",
-          "texture": ["extra chunky", "crumble"],
-          "double": true
-   }
+      'flavor': 'chocolate',
+      'texture': ['extra chunky', 'crumble'],
+      'double': true
+   };
    
    breinify.activity(user, type, description, tags, true);
    ```
