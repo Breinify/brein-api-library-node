@@ -1,5 +1,5 @@
 > ```node
-> // Start sending activities
+> // Invoke activity call
 > var type = 'pageVisit';
 > var description = 'This is the home page';
 > breinify.activity({
