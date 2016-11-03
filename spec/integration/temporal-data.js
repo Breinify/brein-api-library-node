@@ -33,14 +33,6 @@ describe('Breinify TemporalData Request', function () {
         });
     });
 
-    it('lala', function (done) {
-        getNoSig().temporalData('31.10.2016 00:00:00', 'America/Los_Angeles', function (response) {
-            console.log(JSON.stringify(response));
-            expect(response.time.epochSecond).to.be.an('number');
-            done();
-        });
-    });
-
     it('no signature, just date', function (done) {
         getNoSig().temporalData(new Date(), function (response) {
             expect(response.time.epochSecond).to.be.an('number');
