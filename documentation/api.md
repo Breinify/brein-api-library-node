@@ -87,6 +87,8 @@ The library provides several attributes, methods, and objects to simplify the us
 
 #### API
 
+##### Temporal Data (https://api.breinify.com/temporaldata)
+
 * **Breinify.temporalData(ipAddress, localDateTime, timezone, latitude, longitude, userAgent, sign, callback)**:<br/>
   Retrieves temporal information for the specified input (i.e., an ipAddress or a pair of latitude and longitude). The method can also be called with (for a complete list have a look at [breinify.js](../lib/breinify.js)):
      * **Breinify.temporalData(ipAddress, callback)**
@@ -171,6 +173,8 @@ The library provides several attributes, methods, and objects to simplify the us
         }
     }
   ```
+
+##### Activity (https://api.breinify.com/activity)
 
 * **Breinify.activity(user, type, category, description, sign)**:<br/>
   Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is important that a valid API-key is configured prior to using this function.
