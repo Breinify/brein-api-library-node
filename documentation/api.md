@@ -20,13 +20,13 @@ Installation
 Quick Start
 -----------
 
-For a quick start, please have a look at the [README.md](README.md).
+For a quick start, please have a look at the [README.md](../README.md).
 
-### API Library Documentation
+## API Library Documentation
 
 The library provides several attributes, methods, and objects to simplify the usage of the Breinify API. Besides methods to actually send or retrieve data, it also includes general information (e.g., about the version and used configuration), as well as utilities. Thus, the following documentation is organized in three sections: *General Attributes*, *API*, and *Utilities (UTL)*.
   
-#### General Attributes
+### General Attributes
 
 * {object} **Breinify.config()**:<br/>
   
@@ -85,10 +85,12 @@ The library provides several attributes, methods, and objects to simplify the us
   });
   ```
 
-#### API
+### API
+
+#### Temporal Data (https://api.breinify.com/temporaldata)
 
 * **Breinify.temporalData(ipAddress, localDateTime, timezone, latitude, longitude, userAgent, sign, callback)**:<br/>
-  Retrieves temporal information for the specified input (i.e., an ipAddress or a pair of latitude and longitude). The method can also be called with (for a complete list have a look at [breinify.js](lib/breinify.js)):
+  Retrieves temporal information for the specified input (i.e., an ipAddress or a pair of latitude and longitude). The method can also be called with (for a complete list have a look at [breinify.js](../lib/breinify.js)):
      * **Breinify.temporalData(ipAddress, callback)**
      * **Breinify.temporalData(localDateTime, timezone, callback)**
      * **Breinify.temporalData(latitude, longitude, callback)**
@@ -172,6 +174,8 @@ The library provides several attributes, methods, and objects to simplify the us
     }
   ```
 
+#### Activity (https://api.breinify.com/activity)
+
 * **Breinify.activity(user, type, category, description, sign)**:<br/>
   Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is important that a valid API-key is configured prior to using this function.
 
@@ -240,39 +244,35 @@ The library provides several attributes, methods, and objects to simplify the us
 
 
    **Robust Example**
-   
-```javascript
-// grab the Breinify factory
-var Breinify = require('breinify-node');
+   ```javascript
+   // grab the Breinify factory
+   var Breinify = require('breinify-node');
 
-// set configuration for Breinify
-var breinify = new Breinify({
-    apiKey: 'here-is-my-breinify-key',
-    secret: 'here-is-my-breinify-secret'
-});
+   // set configuration for Breinify
+   var breinify = new Breinify({
+      'apiKey': 'here-is-my-breinify-key',
+      'secret': 'here-is-my-breinify-secret'
+   });
 
-
-var user = {
-       "email": "diane@breinify.com",
-       "sessionId": "Rg3vHJZnehYLjVg7qi3bZjzg",
-       "additional": {
-           "userAgent": "Mozilla/5.0 (Linux; Android 4.3; C6530N Build/JLS36C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36",
-           "referrer": "https://m.facebook.com/",
-           "url": "https://test.com/amazingchips"
+   var user = {
+      'email': 'diane@breinify.com',
+      'sessionId': 'Rg3vHJZnehYLjVg7qi3bZjzg',
+      'additional': {
+         'userAgent': 'Mozilla/5.0 (Linux; Android 4.3; C6530N Build/JLS36C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36',
+         'referrer': 'https://m.facebook.com/',
+         'url': 'https://test.com/amazingchips'
        }
     };
     
-var type = "search";
-var description = 'brownies recipe';
-var tags = {
-          "flavor": "chocolate",
-          "texture": ["extra chunky", "crumble"],
-          "double": true
-      }
-
-      
-breinify.activity(user, type, description, tags, true);
-    
-```
+   var type = "search";
+   var description = 'brownies recipe';
+   var tags = {
+      'flavor': 'chocolate',
+      'texture': ['extra chunky', 'crumble'],
+      'double': true
+   };
+   
+   breinify.activity(user, type, description, tags, true);
+   ```
 
 
