@@ -22,11 +22,11 @@ Quick Start
 
 For a quick start, please have a look at the [README.md](../README.md).
 
-### API Library Documentation
+## API Library Documentation
 
 The library provides several attributes, methods, and objects to simplify the usage of the Breinify API. Besides methods to actually send or retrieve data, it also includes general information (e.g., about the version and used configuration), as well as utilities. Thus, the following documentation is organized in three sections: *General Attributes*, *API*, and *Utilities (UTL)*.
   
-#### General Attributes
+### General Attributes
 
 * {object} **Breinify.config()**:<br/>
   
@@ -85,9 +85,9 @@ The library provides several attributes, methods, and objects to simplify the us
   });
   ```
 
-#### API
+### API
 
-##### Temporal Data (https://api.breinify.com/temporaldata)
+#### Temporal Data (https://api.breinify.com/temporaldata)
 
 * **Breinify.temporalData(ipAddress, localDateTime, timezone, latitude, longitude, userAgent, sign, callback)**:<br/>
   Retrieves temporal information for the specified input (i.e., an ipAddress or a pair of latitude and longitude). The method can also be called with (for a complete list have a look at [breinify.js](../lib/breinify.js)):
@@ -174,7 +174,7 @@ The library provides several attributes, methods, and objects to simplify the us
     }
   ```
 
-##### Activity (https://api.breinify.com/activity)
+#### Activity (https://api.breinify.com/activity)
 
 * **Breinify.activity(user, type, category, description, sign)**:<br/>
   Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is important that a valid API-key is configured prior to using this function.
