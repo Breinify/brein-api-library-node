@@ -20,7 +20,7 @@ Installation
 Quick Start
 -----------
 
-For a quick start, please have a look at the [../README.md](README.md).
+For a quick start, please have a look at the [README.md](../README.md).
 
 ### API Library Documentation
 
