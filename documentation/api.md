@@ -240,19 +240,18 @@ The library provides several attributes, methods, and objects to simplify the us
 
 
    **Robust Example**
-   
-```javascript
-// grab the Breinify factory
-var Breinify = require('breinify-node');
+   ```javascript
+   // grab the Breinify factory
+   var Breinify = require('breinify-node');
 
-// set configuration for Breinify
-var breinify = new Breinify({
-    apiKey: 'here-is-my-breinify-key',
-    secret: 'here-is-my-breinify-secret'
-});
+   // set configuration for Breinify
+   var breinify = new Breinify({
+     apiKey: 'here-is-my-breinify-key',
+     secret: 'here-is-my-breinify-secret'
+   });
 
 
-var user = {
+   var user = {
        "email": "diane@breinify.com",
        "sessionId": "Rg3vHJZnehYLjVg7qi3bZjzg",
        "additional": {
@@ -262,17 +261,15 @@ var user = {
        }
     };
     
-var type = "search";
-var description = 'brownies recipe';
-var tags = {
+   var type = "search";
+   var description = 'brownies recipe';
+   var tags = {
           "flavor": "chocolate",
           "texture": ["extra chunky", "crumble"],
           "double": true
-      }
-
-      
-breinify.activity(user, type, description, tags, true);
-    
-```
+   }
+   
+   breinify.activity(user, type, description, tags, true);
+   ```
 
 
