@@ -2,8 +2,8 @@ var mocha = require('mocha'),
     chai = require('chai'),
     assert = chai.assert,
     expect = chai.expect;
-var Breinify = require('../lib/breinify');
-var GlobalVar = require('../test/global-variables');
+var Breinify = require('../../lib/breinify');
+var GlobalVar = require('./global-variables');
 var nock = require("nock");
 
 describe('Breinify Activity Request', function () {
@@ -149,17 +149,12 @@ describe('Breinify Activity Request', function () {
             .post('/activity', GlobalVar.activityPayload)
             .reply(200, followersResponse);
 
-
         var breinify = new Breinify(config);
-
         breinify.activity(GlobalVar.activityPayload.user, GlobalVar.activityPayload.activity.type, GlobalVar.activityPayload.activity.description, GlobalVar.activityPayload.activity.tags, 'other', false, function (response) {
-
             expect(response).to.be.a('object');
             expect(response).to.deep.equal({});
             done();
-
         });
-
     });
 
     it('should fail send activity with key no signature needed, true signature boolean, and no secret set', function (done) {
@@ -170,12 +165,30 @@ describe('Breinify Activity Request', function () {
         var breinify = new Breinify(config);
 
         breinify.activity(GlobalVar.activityPayload.user, GlobalVar.activityPayload.activity.type, GlobalVar.activityPayload.activity.description, GlobalVar.activityPayload.activity.tags, 'other', true, function (response) {
-
             expect(response).to.be.an('error');
             expect(response).to.deep.equal(new Error('Please set your Breinify secret with setConfig()'));
             done();
-
         });
+    });
 
+    it('should successfully send activity with key with signature needed, true signature boolean, and secret set', function (done) {
+        var config = {
+            'apiKey': GlobalVar.keys.apiKeySig,
+            'secret': GlobalVar.keys.apiKeySecret
+        };
+
+        var followersResponse = {}; //doesnt matter response since we use statusCode
+
+        // Mock the TMDB configuration request response
+        nock('https://api.breinify.com')
+            .post('/activity', GlobalVar.activityPayload)
+            .reply(200, followersResponse);
+
+        var breinify = new Breinify(config);
+        breinify.activity(GlobalVar.activityPayload.user, GlobalVar.activityPayload.activity.type, GlobalVar.activityPayload.activity.description, GlobalVar.activityPayload.activity.tags, 'other', true, function (response) {
+            expect(response).to.be.a('object');
+            expect(response).to.deep.equal({});
+            done();
+        });
     });
 });

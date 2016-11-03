@@ -2,7 +2,7 @@ var mocha = require('mocha'),
     chai = require('chai'),
     assert = chai.assert,
     expect = chai.expect;
-var Breinify = require('../lib/breinify');
+var Breinify = require('../../lib/breinify');
 
 var global_variables = {
     'apiKeyNoSig': '41B2-F48C-156A-409A-B465-317F-A0B4-E0E8',
@@ -101,7 +101,7 @@ describe('Breinify Signature', function () {
         var breinify = new Breinify();
 
         //timestamp is Date.now()/1000
-        var signature = breinify._generateSignature('5e9xqoesiygkuzddxjlkaq==', 'search', 1451962516);
+        var signature = breinify._generateSignature('5e9xqoesiygkuzddxjlkaq==', 'search14519625161');
         expect(signature).to.be.a('string');
         expect(signature).to.equal('rsXU0ozhfzieNLA2jQs2h2e4sz2+qHGxbgSYyfWr5EM=');
 

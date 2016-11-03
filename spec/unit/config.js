@@ -1,7 +1,7 @@
 var mocha = require('mocha'),
     chai = require('chai'),
     expect = chai.expect;
-var Breinify = require('../lib/breinify');
+var Breinify = require('../../lib/breinify');
 
 var global_variables = {
     'apiKey': 'DACB-99A8-3147-4BEA-8454-B5B4-8022-0BDE',
@@ -38,6 +38,7 @@ describe('Breinify Set Up', function () {
                 category: null,
                 lookupEndpoint: '/lookup',
                 activityEndpoint: '/activity',
+                temporalDataEndpoint: '/temporaldata',
                 validate: true,
                 debug: false,
                 verbose: false
@@ -74,6 +75,7 @@ describe('Breinify Set Up', function () {
                 apiKey: global_variables.apiKey,
                 secret: global_variables.secret,
                 category: 'other',
+                temporalDataEndpoint: '/temporaldata',
                 lookupEndpoint: '/lookup',
                 activityEndpoint: '/activity',
                 validate: true,

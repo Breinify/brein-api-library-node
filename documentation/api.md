@@ -20,37 +20,11 @@ Installation
 Quick Start
 -----------
 
-```javascript
-// grab the Breinify factory
-var Breinify = require('breinify-node');
-
-// set configuration for Breinify
-var breinify = new Breinify({
-    apiKey: '23AD-F31F-F324-6666-A12D-C506-DC29-BBC2',
-    secret: 'x1kobso6olasgkep9nuloq'
-});
-
-
-// start sending activities
-var type = 'pageVisit';
-var description = 'This is the home page';
-breinify.activity({ 
-    'email': 'diane@breinify.com',
-    'sessionId': 'Rg3vHJZnehYLjVg7qi3bZjzg'
-}, type, description);
-
-```
+For a quick start, please have a look at the [README.md](README.md).
 
 ### API Library Documentation
 
 The library provides several attributes, methods, and objects to simplify the usage of the Breinify API. Besides methods to actually send or retrieve data, it also includes general information (e.g., about the version and used configuration), as well as utilities. Thus, the following documentation is organized in three sections: *General Attributes*, *API*, and *Utilities (UTL)*.
-
-This documentation is organized as following:
-
-* [General Attributes](#general-attributes)
-  * Breinify.config()
-  * Breinify.version()
-  * Breinify.setConfig(config)
   
 #### General Attributes
 
@@ -113,6 +87,91 @@ This documentation is organized as following:
 
 #### API
 
+* **Breinify.temporalData(ipAddress, localDateTime, timezone, latitude, longitude, userAgent, sign, callback)**:<br/>
+  Retrieves temporal information for the specified input (i.e., an ipAddress or a pair of latitude and longitude). The method can also be called with (for a complete list have a look at [breinify.js](lib/breinify.js)):
+     * **Breinify.temporalData(ipAddress, callback)**
+     * **Breinify.temporalData(localDateTime, timezone, callback)**
+     * **Breinify.temporalData(latitude, longitude, callback)**
+
+  **Parameters**:
+  
+  {string|null} **ipAddress**: An ip address, e.g., the clients ip address, which can be resolved using `request.connection.remoteAddress` or if you are, e.g., behind a proxy `request.headers['x-forwarded-for']` (e.g., nginx)
+  
+  {string|null} **localDateTime**: the client's local date and time, which can be retrieved on client's side via `new Date().toString()`; if this information is available in the back-end the accuracy of the result may increase
+  
+  {string|null} **timezone**: the client's timezone, e.g., `America/Los_Angeles`
+  
+  {float|null} **latitude**: the latitude of the location to be resolved (only supported if the longitude is set as well)
+  
+  {float|null} **longitude**: the longitude of the location to be resolved (only supported if the latitude is set as well)
+  
+  {string|null} **userAgent**: the user-agent is currently just used for analytical purposes; the api may provide further results based on the user-agent in the future
+  
+  {boolean|null} **sign**: if set to `true`, the request will be signed with a signature, using the secret specified in the configuration; if `false` no signature will be created; if `null` a signature will be created if an only if a `secret` is provided by the configuration
+  
+  {function} **callback**: the callback used to handle the response
+  
+  **Response**:
+  
+  A full response contains currently information about: holidays, weather, location and time. Each individual part, contains different - content specific - information, e.g., the type of the holiday, the current temperature, or the city name. If information is not available, the response does not contain the appropriate field. 
+  
+  ```json
+    {
+        "holidays": [{
+            "types": ["HALLMARK"],
+            "source": "Public Information",
+            "holiday": "Halloween"
+        }, {
+            "types": ["SPECIAL_DAY"],
+            "source": "United Nations",
+            "holiday": "World Cities Day"
+        }],
+        "weather": {
+            "precipitation": {
+                "precipitationType": "rain",
+                "precipitationAmount": 0.38166666666666665
+            },
+            "windStrength": 0.81,
+            "temperature": 12.77800000000002,
+            "cloudCover": 100,
+            "description": "light rain",
+            "lastMeasured": 1477904873,
+            "measuredAt": {
+                "lon": -122.032181,
+                "lat": 37.323002
+            }
+        },
+        "location": {
+            "country": "US",
+            "state": "CA",
+            "city": "Cupertino",
+            "granularity": "city",
+            "lat": 37.323002,
+            "lon": -122.032181
+        },
+        "time": {
+            "timezone": "America/Los_Angeles",
+            "localYear": 2016,
+            "localMonth": 10,
+            "localDay": 31,
+            "localHour": 0,
+            "localMinute": 0,
+            "localSecond": 0,
+            "localDayName": "Monday",
+            "localFormatIso8601": "2016-10-31T00:00:00-07:00",
+            "epoch": 1477897200,
+            "epochYear": 2016,
+            "epochMonth": 10,
+            "epochDay": 31,
+            "epochHour": 7,
+            "epochMinute": 0,
+            "epochSecond": 0,
+            "epochDayName": "Monday",
+            "epochFormatIso8601": "2016-10-31T07:00:00+00:00"
+        }
+    }
+  ```
+
 * **Breinify.activity(user, type, category, description, sign)**:<br/>
   Sends an activity to the engine utilizing the API. The call is done asynchronously as a POST request. It is important that a valid API-key is configured prior to using this function.
 
@@ -125,61 +184,59 @@ This documentation is organized as following:
      * __md5Email__
      * __phone__
      * __additional__ {object} 
-       
-``` javascript
-//in node, userAgent is usually request.headers['user-agent']
-//in node, referrer is usually request.headers['refere‌​r']
-//in node, url is usually request.url;
-"additional": { 
-   "userAgent": "Mozilla/5.0 (Linux; Android 4.3; C6530N Build/JLS36C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36",
-   "referrer": "https://m.facebook.com/",
-   "url": "https://test.com/amazingchips"
-}
-```
+
+     ``` javascript
+     //in node, userAgent is usually request.headers['user-agent']
+     //in node, referrer is usually request.headers['refere‌​r']
+     //in node, url is usually request.url;
+     "additional": { 
+        "userAgent": "Mozilla/5.0 (Linux; Android 4.3; C6530N Build/JLS36C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36",
+        "referrer": "https://m.facebook.com/",
+        "url": "https://test.com/amazingchips"
+     }
+     ```
 
   {string | null} **type**: The type of the activity collected:
-   * __pageVisit__
-   * __login__
-   * __search__ . 
-   * __selectProduct__
-   * __addToCart__
-   * __removeFromCart__
-   * __checkOut__
-   * __logout__
-   * If not specified, the default __other__ will be used.
+     * __pageVisit__
+     * __login__
+     * __search__ . 
+     * __selectProduct__
+     * __addToCart__
+     * __removeFromCart__
+     * __checkOut__
+     * __logout__
+     * If not specified, the default __other__ will be used.
 
   {string | null} **description**: A string with further information about the activity performed. Depending on the type of the activity, some typical descriptions are: 
-  * __type: search__- the used search query
-  * __type: selectProduct__- the name and tags of the selected product 
-  * __type: addToCart || removeFromCart__- the item name, tags, or summary
-  * __type: checkOut__- the amount of monetary value ($10 USD)
-  * __type: pageVisit__- the page name that the user visited
+     * __type: search__- the used search query
+     * __type: selectProduct__- the name and tags of the selected product 
+     * __type: addToCart || removeFromCart__- the item name, tags, or summary
+     * __type: checkOut__- the amount of monetary value ($10 USD)
+     * __type: pageVisit__- the page name that the user visited
 
   {object | null} **tags**: An object of key value pairs where the value is a number, string, boolean, or a mixed array of either number, string, or boolean. No nested objects or array of objects.
-  
-  ``` javascript
-  "tags": {
-      "flavor": "chocolate",
-      "texture": ["extra chunky", "crumble"],
-      "double": true
-  }
-  ```
+     ``` javascript
+     "tags": {
+         "flavor": "chocolate",
+         "texture": ["extra chunky", "crumble"],
+         "double": true
+     }
+     ```
 
   {string | null} **category**: The category of the platform/service/products:
-   * __apparel__ 
-   * __home__ 
-   * __education__ 
-   * __family__ 
-   * __food__ 
-   * __health__ 
-   * __job__ 
-   * __sports__
-   * __services__ 
-   * __other__ 
-   * If not specified, the configured type (see *Breinify.config().category*) is used.
+     * __apparel__ 
+     * __home__ 
+     * __education__ 
+     * __family__ 
+     * __food__ 
+     * __health__ 
+     * __job__ 
+     * __sports__
+     * __services__ 
+     * __other__ 
+     * If not specified, the configured type (see *Breinify.config().category*) is used.
 
-
-  {boolean|null} **sign**: A boolean value specifying if the call should have a signature generated, which is only available if the *secret* is configured. 
+  {boolean|null} **sign**: A boolean value specifying if the call should have a signature generated. If this parameter is `undefined` or `null`, the system will automatically create a signature, if a `secret` is configured.
 
 
    **Robust Example**

@@ -1,8 +1,8 @@
 var mocha = require('mocha'),
     chai = require('chai'),
     expect = chai.expect;
-var Breinify = require('../lib/breinify');
-var GlobalVar = require('../test/global-variables');
+var Breinify = require('../../lib/breinify');
+var GlobalVar = require('./global-variables');
 var http = require("http");
 var nock = require("nock");
 

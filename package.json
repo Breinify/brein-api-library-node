@@ -15,7 +15,7 @@
   },
   "main": "lib/breinify.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter spec",
+    "test": "./node_modules/.bin/mocha ./spec/unit ./spec/integration --reporter spec",
     "coverage": "istanbul cover _mocha -- -R spec"
   },
   "dependencies": {
