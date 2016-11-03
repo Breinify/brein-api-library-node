@@ -88,7 +88,7 @@ The library provides several attributes, methods, and objects to simplify the us
 #### API
 
 * **Breinify.temporalData(ipAddress, localDateTime, timezone, latitude, longitude, userAgent, sign, callback)**:<br/>
-  Retrieves temporal information for the specified input (i.e., an ipAddress or a pair of latitude and longitude). The method can also be called with (for a complete list have a look at [breinify.js](lib/breinify.js)):
+  Retrieves temporal information for the specified input (i.e., an ipAddress or a pair of latitude and longitude). The method can also be called with (for a complete list have a look at [breinify.js](../lib/breinify.js)):
      * **Breinify.temporalData(ipAddress, callback)**
      * **Breinify.temporalData(localDateTime, timezone, callback)**
      * **Breinify.temporalData(latitude, longitude, callback)**
