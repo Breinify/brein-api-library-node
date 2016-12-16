@@ -38,6 +38,7 @@ describe('Breinify Set Up', function () {
                 category: null,
                 lookupEndpoint: '/lookup',
                 activityEndpoint: '/activity',
+                recommendationEndpoint: '/recommendation',
                 temporalDataEndpoint: '/temporaldata',
                 validate: true,
                 debug: false,
@@ -78,6 +79,7 @@ describe('Breinify Set Up', function () {
                 temporalDataEndpoint: '/temporaldata',
                 lookupEndpoint: '/lookup',
                 activityEndpoint: '/activity',
+                recommendationEndpoint: '/recommendation',
                 validate: true,
                 debug: true,
                 verbose: true
