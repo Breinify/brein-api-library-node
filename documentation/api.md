@@ -213,14 +213,14 @@ The library provides several attributes, methods, and objects to simplify the us
 
   {string | null} **description**: A string with further information about the activity performed. Depending on the type of the activity, some typical descriptions are: 
      * __type: search__- the used search query
-     * __type: selectProduct__- the name and tags of the selected product 
-     * __type: addToCart || removeFromCart__- the item name, tags, or summary
+     * __type: selectProduct__- the name and tagsMap of the selected product 
+     * __type: addToCart || removeFromCart__- the item name, tagsMap, or summary
      * __type: checkOut__- the amount of monetary value ($10 USD)
      * __type: pageVisit__- the page name that the user visited
 
-  {object | null} **tags**: An object of key value pairs where the value is a number, string, boolean, or a mixed array of either number, string, or boolean. No nested objects or array of objects.
+  {object | null} **tagsMap**: An object of key value pairs where the value is a number, string, boolean, or a mixed array of either number, string, or boolean. No nested objects or array of objects.
      ``` javascript
-     "tags": {
+     "tagsMap": {
          "flavor": "chocolate",
          "texture": ["extra chunky", "crumble"],
          "double": true
@@ -266,13 +266,13 @@ The library provides several attributes, methods, and objects to simplify the us
     
    var type = "search";
    var description = 'brownies recipe';
-   var tags = {
+   var tagsMap = {
       'flavor': 'chocolate',
       'texture': ['extra chunky', 'crumble'],
       'double': true
    };
    
-   breinify.activity(user, type, description, tags, true);
+   breinify.activity(user, type, description, tagsMap, true);
    ```
 
 
