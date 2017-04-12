@@ -1,26 +1,19 @@
 <blockquote class="lang-specific javascript--browser">
-<p>With the JavaScript library it is really simple to resolve temporal information
-based on a client's ip-address. The endpoint utilizes the requesting ip-address to
-determine, which information to return. Thus, the call does not need any additional 
-data.</p>
+<p>In general, the ip-address can be simply passed as first parameter. If you
+would like to know more about your requesting client, you can also just pass in
+the requesting ip-address. There are several different ways (also depending on the 
+used framework) available to determine your client's ip, for example, see 
+<a target="_blank" href="https://www.npmjs.com/package/client-ip">client-ip</a>.</p>
 </blockquote>
 
 >
 ```javascript--browser
-Breinify.temporalData(function(data) {
+breinify.temporalData('72.229.28.185', function(data) {
 	console.log(data);
 });
 ```
 
-<blockquote class="lang-specific javascript--browser">
-<p>Sometimes, it may be necessary to resolve a specific ip-address instead of the client's
-one. To specify the ip-address to resolve, the library provides an overriden version, i.e.,</p>
+<blockquote class="lang-specific javascript--node">
+<p>Check the example on runkit, to try it yourself, see 
+<a target="_blank" href="https://runkit.com/breinify-stage/looking-up-ip-data">runkit (ip-address)</a>.</p>
 </blockquote>
-
->
-```javascript--browser
-var ip = '72.229.28.185'; 
-Breinify.temporalData({ additional: { ipAddress: ip }}, function(data) {
-	console.log(data);
-});
-```

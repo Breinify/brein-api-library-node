@@ -1,7 +1,7 @@
 <blockquote class="lang-specific javascript--node">
 <p>You selected the documentation for Node.js library. 
 The library is deployed under the MIT License and is 
-available as <a href="https://github.com/Breinify/brein-api-library-node">open-source project</a> 
+available as <a target="_blank" href="https://github.com/Breinify/brein-api-library-node">open-source project</a> 
 on GitHub.</p>
 </blockquote>
 
