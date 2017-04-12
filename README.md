@@ -84,7 +84,7 @@ breinify.activity(user, 'addToCart', null, tags);
 
 ## TemporalData: Selected Usage Examples
 
-### IP-Resolving (retrieve information for an IP-Address)
+### IP-Resolving (retrieve information for an IP-address)
 
 One of the use cases of the `/temporalData` endpoint is to retrieve information about a specific IP-address. 
 
@@ -103,7 +103,7 @@ information contains, other than just a location, weather, holiday, time, and ev
 </p>
 
 
-### Reverse Geocoding (retrieve information for a latitude/longitude)
+### Reverse Geocoding (retrieve information from coordinates)
 
 The `/temporalData` endpoint enables you to perform reverse geocoding. To do so, simple pass in the known latitude and longitude
 into the request.
