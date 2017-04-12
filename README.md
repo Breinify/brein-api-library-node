@@ -43,7 +43,10 @@ Whenever the library is used, it needs to be configured, i.e., the configuration
 
 ```javascript
 var Breinify = require('breinify-node');
-var breinify = new Breinify({ apiKey: '938D-3120-64DD-413F-BB55-6573-90CE-473A', secret: 'utakxp7sm6weo5gvk7cytw==' });
+var breinify = new Breinify({ 
+    apiKey: '938D-3120-64DD-413F-BB55-6573-90CE-473A', 
+    secret: 'utakxp7sm6weo5gvk7cytw==' 
+});
 
 // use the breinify instance, see the following usage examples
 ```
