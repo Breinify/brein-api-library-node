@@ -2,23 +2,18 @@
   <img src="https://www.breinify.com/img/Breinify_logo.png" alt="Breinify API JavaScript Library" width="250">
 </p>
 
-<p align="center">
-Breinify's DigitalDNA API puts dynamic behavior-based, people-driven data right at your fingertips.
-</p>
-
-Breinify-node
-=============
+# Breinify-node
 
 This library provides many of the features in the official JavaScript breinify library.  It is easy to use, and fully async. It is intended to be used on the server (it is not a client module). The in-browser client library is available
 at [https://github.com/Breinify/brein-api-library-javascript-browser](https://github.com/Breinify/brein-api-library-javascript-browser).
 
-Installation
-------------
+## Installation
 
-    npm install breinify-node
+```
+npm install breinify-node
+```
 
-Quick Start
------------
+## Quick Start
 
 For a quick start, please have a look at the [README.md](../README.md).
 
