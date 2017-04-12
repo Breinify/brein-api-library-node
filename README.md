@@ -36,6 +36,18 @@ The library is available on [npm](https://www.npmjs.com/package/breinify-node) a
 npm install breinify-node --save
 ```
 
+### Configuring the Library
+
+Whenever the library is used, it needs to be configured, i.e., the configuration defines which API key and which secret 
+(if signed messages are enabled, i.e., `Verification Signature` is checked) to use.
+
+```javascript
+var Breinify = require('breinify-node');
+var breinify = new Breinify({ apiKey: '938D-3120-64DD-413F-BB55-6573-90CE-473A', secret: 'utakxp7sm6weo5gvk7cytw==' });
+
+// use the breinify instance, see the following usage examples
+```
+
 ## Activity: Selected Usage Examples
 
 The `/activity` endpoint is used to track the usage of, e.g., an application, an app, or a web-site. There are several libraries available to be used for different system (e.g., [iOS](https://github.com/Breinify/brein-api-library-ios), [Android](https://github.com/Breinify/brein-api-library-android), [Java](https://github.com/Breinify/brein-api-library-java), [JavaScript](https://github.com/Breinify/brein-api-library-javascript-browser), [ruby](https://github.com/Breinify/brein-api-library-ruby), [php](https://github.com/Breinify/brein-api-library-php), [python](https://github.com/Breinify/brein-api-library-python)).
@@ -45,9 +57,6 @@ The `/activity` endpoint is used to track the usage of, e.g., an application, an
 The example shows, how to send a login activity, reading the data from an request. In general, activities are added to the interesting measure points within your applications process (e.g., `login`, `addToCart`, `readArticle`). The endpoint offers analytics and insights through Breinify's dashboard.
 
 ```javascript
-var Breinify = require('breinify-node');
-var breinify = new Breinify({ apiKey: '938D-3120-64DD-413F-BB55-6573-90CE-473A', secret: 'utakxp7sm6weo5gvk7cytw==' });
-
 // the req object may be passed, e.g., using express:
 //   app.post('/login', function(req, res)
 
@@ -64,9 +73,6 @@ breinify.activity(user, 'login');
 It is also possible to send additional information with an activity, e.g., which items were added to a cart. More precise information help to group or filter when analyzing the collected data.
 
 ```javascript
-var Breinify = require('breinify-node');
-var breinify = new Breinify({ apiKey: '938D-3120-64DD-413F-BB55-6573-90CE-473A', secret: 'utakxp7sm6weo5gvk7cytw==' });
-
 // the req object may be passed, e.g., using express:
 //   app.post('/addItem', function(req, res)
 
@@ -99,9 +105,20 @@ information contains, other than just a location, weather, holiday, time, and ev
 
 <p align="center">
   <img src="documentation/img/sample-ip-lookup.png" alt="IP LookUp" width="500"><br/>
-  <sup>Screenshot of the runkit resolving the IP 204.28.127.66</sup>
+  <sup>Screenshot of the result resolving the IP 204.28.127.66</sup>
 </p>
 
+### Geocoding (retrieve information from text)
+
+Sometimes you need specific information for a city or some textual description of a location. The followin example shows
+how to retrieve the temporal information (i.e., location, events, holidays, time) from a text. For example, did you know
+where `Bemidji` and how the current weather is?
+
+```javascript
+Breinify.temporalData({ location: { text: 'Bemidji' }}, function(data) {
+    // use the returned data
+});
+```
 
 ### Reverse Geocoding (retrieve information from coordinates)
 
@@ -120,28 +137,8 @@ information about the current weather, current events or regional and global hol
 
 <p align="center">
   <img src="documentation/img/sample-reverse-geocoding-lat-lon.png" alt="Reverse Geocoding" width="500"><br/>
-  <sup>Screenshot of the runkit (reverse-geocoding-lati-long) resolving the coordinates 40.4406° N, 79.9959° W</sup>
+  <sup>Screenshot of the result (location only) resolving the coordinates 40.4406° N, 79.9959° W</sup>
 </p>
-
-
-
-If you'd like to retrieve temporal data, use:
-
-```javascript
-// retrieve detailled information about a location
-breinify.temporalData(40.730610, -73.935242, function(response) {
-    console.log('The weather in ' + response.location.city + 
-                ' is ' + response.weather.description + 
-                ' on this ' + response.time.localDayName);
-});
-
-// retrieve detailled information (location, weather) using an ip
-breinify.temporalData('216.58.194.195', function(response) {
-    console.log('The weather in ' + response.location.city + 
-                ' is ' + response.weather.description + 
-                ' on this ' + response.time.localDayName);
-});
-```
 
 ## Further links
 
