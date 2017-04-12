@@ -4,7 +4,7 @@ and use the resolved information.</p>
 </blockquote>
 
 >
-```javascript--browser
+```javascript--node
 Breinify.temporalData(37.7609295, -122.4194155, function(data) {   
 	console.log(data);
 });
@@ -17,7 +17,7 @@ a location must be specified, together with the shapes to return.</p>
 </blockquote>
 
 >
-```javascript--browser
+```javascript--node
 var loc = {
   latitude: 40.7608, 
   longitude: -111.8910,

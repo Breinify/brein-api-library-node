@@ -1,4 +1,4 @@
-<blockquote class="lang-specific javascript--browser">
+<blockquote class="lang-specific javascript--node">
 <p>In general, the ip-address can be simply passed as first parameter. If you
 would like to know more about your requesting client, you can also just pass in
 the requesting ip-address. There are several different ways (also depending on the 
@@ -7,7 +7,7 @@ used framework) available to determine your client's ip, for example, see
 </blockquote>
 
 >
-```javascript--browser
+```javascript--node
 breinify.temporalData('72.229.28.185', function(data) {
 	console.log(data);
 });
