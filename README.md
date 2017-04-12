@@ -104,7 +104,7 @@ An example is available on [runkit.com](https://runkit.com/breinify-stage/lookin
 information contains, other than just a location, weather, holiday, time, and events.
 
 <p align="center">
-  <img src="documentation/img/sample-ip-lookup.png" alt="IP LookUp" width="500"><br/>
+  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-node/master/documentation/img/sample-ip-lookup.png" alt="IP LookUp" width="500"><br/>
   <sup>Screenshot of the result resolving the IP 204.28.127.66</sup>
 </p>
 
@@ -136,7 +136,7 @@ utilizing the latest version of the library. The result contains besides the act
 information about the current weather, current events or regional and global holidays.
 
 <p align="center">
-  <img src="documentation/img/sample-reverse-geocoding-lat-lon.png" alt="Reverse Geocoding" width="500"><br/>
+  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-node/master/documentation/img/sample-reverse-geocoding-lat-lon.png" alt="Reverse Geocoding" width="500"><br/>
   <sup>Screenshot of the result (location only) resolving the coordinates 40.4406° N, 79.9959° W</sup>
 </p>
 
