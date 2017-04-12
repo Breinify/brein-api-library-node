@@ -61,7 +61,7 @@ The example shows, how to send a login activity, reading the data from an reques
 
 ```javascript
 // the req object may be passed, e.g., using express:
-//   app.post('/login', function(req, res)
+//   app.post('/login', function(req, res) { ... });
 
 var user = {
     'sessionId': req.sessionID,
@@ -77,7 +77,7 @@ It is also possible to send additional information with an activity, e.g., which
 
 ```javascript
 // the req object may be passed, e.g., using express:
-//   app.post('/addItem', function(req, res)
+//   app.post('/login', function(req, res) { ... });
 
 var user = {
     'sessionId': req.sessionID
