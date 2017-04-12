@@ -120,6 +120,14 @@ Breinify.temporalData({ location: { text: 'Bemidji' }}, function(data) {
 });
 ```
 
+The above example is also available on [runkit.com](https://runkit.com/breinify-stage/geocoding-free-text). Now we know, 
+`Bemidji` is a city in Minnesota, "close" to the Canadian border.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-node/master/documentation/img/sample-geocoding-free-text.png" alt="Free-Text Geocoding" width="500"><br/>
+  <sup>Screenshot of the result resolving the text Bemidji</sup>
+</p>
+
 ### Reverse Geocoding (retrieve information from coordinates)
 
 The `/temporalData` endpoint enables you to perform reverse geocoding. To do so, simple pass in the known latitude and longitude
