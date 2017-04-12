@@ -5,7 +5,7 @@ and use the resolved information.</p>
 
 >
 ```javascript--node
-Breinify.temporalData(37.7609295, -122.4194155, function(data) {   
+breinify.temporalData(37.7609295, -122.4194155, function(data) {   
 	console.log(data);
 });
 ```
@@ -23,16 +23,13 @@ var loc = {
   longitude: -111.8910,
   shapeTypes: ['CITY']
 };
-Breinify.temporalData({ location: loc }, function(data) {
+breinify.temporalData({ location: loc }, function(data) {
     console.log(data);
 });
 ```
 
 <blockquote class="lang-specific javascript--node">
-<p>There are examples available on runkit. Have a look:
-<ul>
-<li><a target="_blank" href="https://runkit.com/breinify-stage/reverse-geocoding-lati-long">Coordinations Example</a></li>
-<li><a target="_blank" href="https://runkit.com/breinify-stage/reverse-geocoding-geojson">GeoJson Example</a></li>
-</ul>
-</p>
+<p>There are examples available on runkit. Have a look at
+<a target="_blank" href="https://runkit.com/breinify-stage/reverse-geocoding-lati-long">Coordinations Example</a> and 
+<a target="_blank" href="https://runkit.com/breinify-stage/reverse-geocoding-geojson">GeoJson Example</a>.</p>
 </blockquote>

@@ -1,6 +1,6 @@
 >
-```javascript--browser
-Breinify.temporalData({ location: { text: 'Bemidji' }}, function(data) {
+```javascript--node
+breinify.temporalData({ location: { text: 'Bemidji' }}, function(data) {
     // the location will be resolved to Bemidji, Minnesota, USA
 	console.log(data);
 });

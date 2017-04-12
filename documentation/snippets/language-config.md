@@ -14,3 +14,8 @@ var breinify = new Breinify({
     'secret': 'utakxp7sm6weo5gvk7cytw==' 
 });
 ```
+
+<blockquote class="lang-specific javascript--node">
+<p>Within this documentation the usage of the variable <code class="prettyprint">breinify</code> indicates that
+a configured instance of <code class="prettyprint">Breinify</code> is used.</p>
+</blockquote>
