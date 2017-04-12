@@ -157,6 +157,7 @@ var loc = {
   longitude: -111.8910,
   shapeTypes: ['CITY']
 };
+
 Breinify.temporalData({ location: loc }, function(data) {
     console.log(data.location.geojson.CITY);
 });
