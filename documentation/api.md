@@ -89,13 +89,30 @@ The library provides several attributes, methods, and objects to simplify the us
 
 #### Temporal Data (https://api.breinify.com/temporaldata)
 
+* **Breinify.temporalData(user, sign, callback)**:<br/>
+  Retrieves temporal information for the specified input (i.e., a user instance, for a complete list have a look at the [API documentation](https://www.breinify.com/documentation)).
+     * **Breinify.temporalData(user, callback)**
+    
+  **Parameters**:
+  
+  {object} **user**: a user instance, specifying the temporal data to resolve
+  
+  {boolean|null} **sign**: if set to `true`, the request will be signed with a signature, using the secret specified in the configuration; if `false` no signature will be created; if `null` a signature will be created if an only if a `secret` is provided by the configuration
+  
+  {function} **callback**: the callback used to handle the response
+  
+  **Response**:
+  
+  A full response contains currently information about: holidays, weather, location and time. Each individual part, contains different - content specific - information, e.g., the type of the holiday, the current temperature, or the city name. If information is not available, the response does not contain the appropriate field. 
+  A detailed list of the available fields can be found at the [API documentation](https://www.breinify.com/documentation)).
+
+
 * **Breinify.temporalData(ipAddress, localDateTime, timezone, latitude, longitude, userAgent, sign, callback)**:<br/>
-  Retrieves temporal information for the specified input (i.e., an ipAddress, a pair of latitude and longitude or a user instance, for a complete list have a look at [breinify.js](../lib/breinify.js)):
+  Retrieves temporal information for the specified input (i.e., an ipAddress or a pair of latitude and longitude, for a complete list have a look at [breinify.js](../lib/breinify.js)):
      * **Breinify.temporalData(ipAddress, callback)**
      * **Breinify.temporalData(localDateTime, timezone, callback)**
      * **Breinify.temporalData(latitude, longitude, callback)**
      * **Breinify.temporalData(ipAddress, longitude, callback)**
-     * **Breinify.temporalData(user, callback)**
 
   **Parameters**:
   
@@ -118,63 +135,8 @@ The library provides several attributes, methods, and objects to simplify the us
   **Response**:
   
   A full response contains currently information about: holidays, weather, location and time. Each individual part, contains different - content specific - information, e.g., the type of the holiday, the current temperature, or the city name. If information is not available, the response does not contain the appropriate field. 
-  
-  ```json
-    {
-        "holidays": [{
-            "types": ["HALLMARK"],
-            "source": "Public Information",
-            "holiday": "Halloween"
-        }, {
-            "types": ["SPECIAL_DAY"],
-            "source": "United Nations",
-            "holiday": "World Cities Day"
-        }],
-        "weather": {
-            "precipitation": {
-                "precipitationType": "rain",
-                "precipitationAmount": 0.38166666666666665
-            },
-            "windStrength": 0.81,
-            "temperature": 12.77800000000002,
-            "cloudCover": 100,
-            "description": "light rain",
-            "lastMeasured": 1477904873,
-            "measuredAt": {
-                "lon": -122.032181,
-                "lat": 37.323002
-            }
-        },
-        "location": {
-            "country": "US",
-            "state": "CA",
-            "city": "Cupertino",
-            "granularity": "city",
-            "lat": 37.323002,
-            "lon": -122.032181
-        },
-        "time": {
-            "timezone": "America/Los_Angeles",
-            "localYear": 2016,
-            "localMonth": 10,
-            "localDay": 31,
-            "localHour": 0,
-            "localMinute": 0,
-            "localSecond": 0,
-            "localDayName": "Monday",
-            "localFormatIso8601": "2016-10-31T00:00:00-07:00",
-            "epoch": 1477897200,
-            "epochYear": 2016,
-            "epochMonth": 10,
-            "epochDay": 31,
-            "epochHour": 7,
-            "epochMinute": 0,
-            "epochSecond": 0,
-            "epochDayName": "Monday",
-            "epochFormatIso8601": "2016-10-31T07:00:00+00:00"
-        }
-    }
-  ```
+  A detailed list of the available fields can be found at the [API documentation](https://www.breinify.com/documentation)).
+
 
 #### Activity (https://api.breinify.com/activity)
 
@@ -192,9 +154,11 @@ The library provides several attributes, methods, and objects to simplify the us
      * __additional__ {object} 
 
      ``` javascript
-     //in node, userAgent is usually request.headers['user-agent']
-     //in node, referrer is usually request.headers['refere‌​r']
-     //in node, url is usually request.url;
+     /*
+      * in node, userAgent is usually request.headers['user-agent']
+      * in node, referrer is usually request.headers['refere‌​r']
+      * in node, url is usually request.url
+      */
      "additional": { 
         "userAgent": "Mozilla/5.0 (Linux; Android 4.3; C6530N Build/JLS36C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36",
         "referrer": "https://m.facebook.com/",
