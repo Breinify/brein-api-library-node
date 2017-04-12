@@ -42,10 +42,30 @@ describe('Breinify TemporalData Request', function () {
     });
 
     it('no signature, just location', function (done) {
-        getNoSig().temporalData(40.730610, -73.935242, function (response) {
+        getNoSig().temporalData(39.9526, -75.1652, function (response) {
             expect(response.location.country).to.be.equal('US');
-            expect(response.location.city).to.be.equal('West New York');
-            expect(response.location.state).to.be.equal('NJ');
+            expect(response.location.city).to.be.equal('Philadelphia');
+            expect(response.location.state).to.be.equal('PA');
+            done();
+        });
+    });
+
+    it('no signature, user', function (done) {
+        this.timeout(10000);
+
+        getNoSig().temporalData({
+            additional: {
+                location: {
+                    latitude: 37.7609295,
+                    longitude: -122.4194155,
+                    shapeTypes: ['CITY', 'NEIGHBORHOOD']
+                }
+            }
+        }, function (response) {
+            expect(response.location.country).to.be.equal('US');
+            expect(response.location.state).to.be.equal('CA');
+            expect(response.location.geojson).to.have.property('CITY');
+            expect(response.location.geojson).to.have.property('NEIGHBORHOOD');
             done();
         });
     });
@@ -66,10 +86,10 @@ describe('Breinify TemporalData Request', function () {
     });
 
     it('signature, just location', function (done) {
-        getSig().temporalData(40.730610, -73.935242, function (response) {
+        getSig().temporalData(39.9526, -75.1652, function (response) {
             expect(response.location.country).to.be.equal('US');
-            expect(response.location.city).to.be.equal('West New York');
-            expect(response.location.state).to.be.equal('NJ');
+            expect(response.location.city).to.be.equal('Philadelphia');
+            expect(response.location.state).to.be.equal('PA');
             done();
         });
     });
