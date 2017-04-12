@@ -148,6 +148,28 @@ information about the current weather, current events or regional and global hol
   <sup>Screenshot of the result (location only) resolving the coordinates 40.4406° N, 79.9959° W</sup>
 </p>
 
+The endpoint also offers the possibility to retrieve `GeoJson` instances for, e.g., the neighborhood (if available), the city, or the state. The following
+code-snippets shows how a `GeoJson` can be retrieved.
+
+```javascript
+var loc = {
+  latitude: 40.7608, 
+  longitude: -111.8910,
+  shapeTypes: ['CITY']
+};
+Breinify.temporalData({ location: loc }, function(data) {
+    console.log(data.location.geojson.CITY);
+});
+```
+
+The example with `GeoJson` is also available on [runkit.com](https://runkit.com/breinify-stage/reverse-geocoding-geojson). The following
+screen-shots shows the result.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-node/master/documentation/img/sample-geojson.png" alt="Reverse Geocoding" width="500"><br/>
+  <sup>Screenshot of the result visualizing the GeoJson of the city located at 40.7608° N, 111.8910° W</sup>
+</p>
+
 ## Further links
 
 To understand all the capabilities of Breinify's API, you can find further information:
