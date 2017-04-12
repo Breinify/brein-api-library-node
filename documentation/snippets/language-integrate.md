@@ -4,6 +4,6 @@
 </blockquote>
 
 >
-```javascript--browser
+```javascript--node
 npm install breinify-node --save
 ```
