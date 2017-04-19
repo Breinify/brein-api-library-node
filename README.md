@@ -113,7 +113,7 @@ information contains, other than just a location, weather, holiday, time, and ev
 
 ### Geocoding (retrieve information from text)
 
-Sometimes you need specific information for a city or some textual description of a location. The followin example shows
+Sometimes you need specific information for a city or some textual description of a location. The following example shows
 how to retrieve the temporal information (i.e., location, events, holidays, time) from a text. For example, did you know
 where `Bemidji` and how the current weather is?
 
