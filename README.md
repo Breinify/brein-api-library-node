@@ -167,7 +167,7 @@ Breinify.temporalData({ location: loc }, function(data) {
 ```
 
 The example with `GeoJson` is also available on [runkit.com](https://runkit.com/breinify-stage/reverse-geocoding-geojson). The following
-screen-shots shows the result.
+screenshots shows the result.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Breinify/brein-api-library-node/master/documentation/img/sample-geojson.png" alt="Reverse Geocoding" width="500"><br/>
