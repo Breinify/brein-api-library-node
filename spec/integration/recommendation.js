@@ -27,17 +27,26 @@ function getSig() {
 describe('Breinify Recommendation Request', function () {
 
     it('no signature', function (done) {
-        getNoSig().recommendation({'email': 'test@email.com'}, 3, function (response) {
-            expect(response.result).to.be.instanceof(Array);
-            expect(response.result).to.have.lengthOf(3);
+        getNoSig().recommendation({'email': 'test@email.com'}, {
+            'numRecommendations': 50,
+            'recommendationSubRecommenders': ['topN']
+        }, function (response) {
+            expect(response.result).to.be.an('array');
+            expect(response.result).to.be.empty;
+
             done();
         });
     });
 
     it('signature', function (done) {
-        getSig().recommendation({'email': 'test@email.com'}, 3, function (response) {
-            expect(response.result).to.be.instanceof(Array);
-            expect(response.result).to.have.lengthOf(3);
+        getSig().recommendation({'email': 'test@email.com'}, {
+            'numRecommendations': 50,
+            'recommendationSubRecommenders': ['topN']
+        }, function (response) {
+            expect(response.result).to.be.an('array');
+            expect(response.result).to.be.empty;
+
+
             done();
         });
     });
