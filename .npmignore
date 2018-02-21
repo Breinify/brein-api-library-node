@@ -1,0 +1,10 @@
+# Additionally to .gitignore          #
+#######################################
+brein-api-library-node.iml
+jenkins.groovy
+build.xml
+
+# No tests needed for production code #
+#######################################
+./spec
+./spec/**/*

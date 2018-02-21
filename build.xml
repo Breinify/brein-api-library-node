@@ -1,0 +1,21 @@
+<project name="brein-api-library-node" basedir=".">
+
+    <!-- This is an internally used build-script. To build the project manually,
+         please resolve the needed dependencies and use the appropriate npm methods
+      -->
+    <include file="../../brein-workspace/brein-intellij-workspace/common-libs/ant-util/util-ant.xml"/>
+
+    <property name="app" value="brein-api-library-node"/>
+
+    <target name="01-resolve-dependencies">
+        <exec-npm module="install"/>
+    </target>
+
+    <target name="04-publish-results">
+        <publish-js-app/>
+    </target>
+
+    <target name="06-run-test-suite" depends="01-resolve-dependencies">
+        <exec-npm module="test"/>
+    </target>
+</project>
