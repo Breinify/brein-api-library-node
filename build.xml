@@ -20,4 +20,8 @@
     <target name="06-run-test-suite" depends="01-resolve-dependencies">
         <exec-npm module="test"/>
     </target>
+
+    <target name="99-publish-npmjs" depends="01-resolve-dependencies">
+        <exec-npm module="publish"/>
+    </target>
 </project>
