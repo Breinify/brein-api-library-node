@@ -1,10 +1,12 @@
 # Additionally to .gitignore          #
 #######################################
+.npmignore
 brein-api-library-node.iml
 jenkins.groovy
 build.xml
+publish-pom.xml
 
 # No tests needed for production code #
 #######################################
-./spec
-./spec/**/*
+spec
+spec/**/*

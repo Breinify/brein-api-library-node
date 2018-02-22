@@ -12,7 +12,9 @@
     </target>
 
     <target name="04-publish-results">
-        <publish-js-app/>
+        <publish-node-app>
+            <cf/>
+        </publish-node-app>
     </target>
 
     <target name="06-run-test-suite" depends="01-resolve-dependencies">
